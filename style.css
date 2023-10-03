@@ -72,7 +72,7 @@ html {
 .container {
     display: grid;
     grid-template-rows: 150px 1fr 50px;
-    height: 100vh;;
+    height: 100vh;
 }
 
 div {
@@ -85,6 +85,10 @@ div {
     align-items: center;
     font-size: 2rem;
     font-weight: 700;
+}
+
+.main {
+    background-image: url('img/bg.jpg');
 }
 
 .footer {
