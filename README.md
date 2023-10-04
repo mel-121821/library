@@ -2,7 +2,7 @@ Project: Library
 
 Instruction:
 
-- [ ] If you haven’t already, set up your project with skeleton HTML/CSS and JS files.
+- [x] If you haven’t already, set up your project with skeleton HTML/CSS and JS files.
 
 - [ ] All of your book objects are going to be stored in a simple array, so add a function to the script (not the constructor) that can take user’s input and store the new book objects into an array. Your code should look something like this:
 
@@ -38,5 +38,8 @@ Pull color palette from an image:
 https://coolors.co/image-picker
 
 Resources:
+
+Gradients:
+https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_images/Using_CSS_gradients
 
 
