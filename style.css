@@ -67,6 +67,7 @@ table {
 /* --wisteria-dark: hsla(275, 33%, 59%, 1); */
 --wisteria-dark: hsla(275, 33%, 45%, 1);
 --lilac-dark: hsla(279, 26%, 60%, 1);
+--champagne-pink-light: hsla(14, 45%, 95%, 1);
 }
 
 * {
@@ -84,13 +85,13 @@ html {
 
 .container {
     display: grid;
-    grid-template-rows: 120px 1fr 50px;
+    grid-template-rows: 120px 80px 1fr 50px;
     height: 100vh;
 }
 
-div {
+/* div {
     border: 1px solid gray;
-}
+} */
 
 .header {
     display: flex;
@@ -103,6 +104,78 @@ div {
 
 .header h1 {
     color: var(--champagne-pink)
+}
+
+.user-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0px 50px; 
+    gap: 20px;
+    background: linear-gradient(var(--wisteria), var(--thistle), var(--wisteria));
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+legend {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.user-inputs {
+    /* display: grid;
+    grid-template-columns: repeat(3, minmax(150px, 2fr)) 70px 120px;
+    gap: 20px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .book-title,
+.book-author,
+.pages {
+    display: flex;
+    flex-direction: column;
+} */
+
+.read-status,
+.add-book {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+label {
+    font-size: 0.8rem;
+    margin-bottom: 3px;
+}
+
+input[type="text"],
+input[type="tel"] {
+    width: 90%;
+    border-radius: 8px;
+    border: 0;
+    outline: 0;
+    padding: 3px;
+    background-color: var(--champagne-pink-light);
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus {
+    box-shadow: 2px 2px 4px var(--wisteria-dark);
+    /* offset-x | offset-y | blur-radius | spread-radius | color */
+}
+
+button {
+    padding: 10px 30px;
+    background-color: var(--wisteria-dark);
+    color: var(--champagne-pink-light);
+    border: none;
+    border-radius: 20px;
+    font-size: 1.1rem;
 }
 
 .main {
@@ -145,7 +218,7 @@ div {
     right: 0px;
     bottom: 0px;
     left: 0px;
-    opacity: 0.8;
+    opacity: 0.7;
 }
 
 .footer {
@@ -169,3 +242,35 @@ div {
     height: 40px;
     width: 40px;
 }
+
+
+/*_________________***Media Queries***___________________*/
+
+
+/* @media all and (max-width: 860px) and (min-width: 651px) {
+    .container {
+        display: grid;
+        grid-template-rows: 120px 150px 1fr 50px;
+    }
+
+    legend {
+        align-self: center;
+        margin-bottom: 15px;
+    }
+
+    .user-inputs {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .read-status,
+    .add-book {
+        width: 160px;
+    }
+}
+
+@media only screen and (max-width: 695px) {
+
+} */
