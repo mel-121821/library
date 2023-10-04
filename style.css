@@ -107,8 +107,33 @@ div {
 
 .main {
     /* background-image: url('img/bg.jpg'); */
+    display: grid;
+    grid-template: 1fr / 1fr 15fr 1fr;
     position: relative;
+}
 
+.card-container {
+    grid-column: 2 / 3;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-rows: repeat(2, 250px);
+    grid-auto-rows: 250px;
+    gap: 50px 20px;
+    padding: 50px 0px;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.book {
+    height: 250px;
+    width: 300px;
+    background-color: var(--wisteria-dark);
+    /* position: relative; */
+    /* To make the book cards solid */
 }
 
 .main::before {
