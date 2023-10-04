@@ -56,6 +56,19 @@ table {
 
 /*__________________________________________*/
 
+:root {
+    /* Color pallet pulled from bg image */
+--thistle: hsla(314, 28%, 78%, 1);
+--wisteria: hsla(275, 33%, 69%, 1);
+--champagne-pink: hsla(14, 45%, 89%, 1);
+--lilac: hsla(279, 26%, 74%, 1);
+--french-gray: hsla(318, 13%, 80%, 1);
+
+/* --wisteria-dark: hsla(275, 33%, 59%, 1); */
+--wisteria-dark: hsla(275, 33%, 45%, 1);
+--lilac-dark: hsla(279, 26%, 60%, 1);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -71,7 +84,7 @@ html {
 
 .container {
     display: grid;
-    grid-template-rows: 150px 1fr 50px;
+    grid-template-rows: 120px 1fr 50px;
     height: 100vh;
 }
 
@@ -85,10 +98,29 @@ div {
     align-items: center;
     font-size: 2rem;
     font-weight: 700;
+    background: radial-gradient(var(--lilac-dark), var(--wisteria-dark));
+}
+
+.header h1 {
+    color: var(--champagne-pink)
 }
 
 .main {
+    /* background-image: url('img/bg.jpg'); */
+    position: relative;
+
+}
+
+.main::before {
+    content: "";
     background-image: url('img/bg.jpg');
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.8;
 }
 
 .footer {
@@ -96,6 +128,8 @@ div {
     display: flex;
     justify-content: center;
     align-items: center;
+    background: radial-gradient(var(--lilac-dark), var(--wisteria-dark));
+    color: var(--champagne-pink);
 }
 
 .icon {
