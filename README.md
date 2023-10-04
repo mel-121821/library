@@ -30,7 +30,7 @@ NOTE: You’re not required to add any type of storage right now. You will have 
 
 Media References:
 
-bg: Vicki Hamilton - Pixabay
+bg: Vicki Hamilton (flutie8211) - Pixabay
 
 Tools:
 
