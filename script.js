@@ -12,9 +12,12 @@ const addButton = document.querySelector('.add-book');
 
 const formPopup = document.querySelector('.form-popup')
 
+const main = document.querySelector('.main');
+
 addButton.addEventListener('click', function() {
     console.log("clicked")
     formPopup.style.display = "block";
+    main.classList.add('blurry');
 })
 
 
