@@ -8,9 +8,14 @@ const myLibrary = [];
 
 //_____Query Selectors____
 
-const addButton = document.querySelector('.add-book > button'); 
+const addButton = document.querySelector('.add-book'); 
 
+const formPopup = document.querySelector('.form-popup')
 
+addButton.addEventListener('click', function() {
+    console.log("clicked")
+    formPopup.style.display = "block";
+})
 
 
 // _____Object constructor_____
