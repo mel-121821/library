@@ -89,9 +89,16 @@ html {
     height: 100vh;
 }
 
+.blurry {
+    filter: blur(5px);
+}
+
 /* div {
     border: 1px solid gray;
 } */
+
+/*_______________Header_______________*/
+
 
 .header {
     display: flex;
@@ -110,16 +117,42 @@ html {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     padding: 0px 50px; 
-    gap: 20px;
+    /* gap: 20px; */
     background: linear-gradient(var(--wisteria), var(--thistle), var(--wisteria));
 }
+
+button {
+    width: 325px;
+    padding: 10px 30px;
+    background-color: var(--wisteria-dark);
+    color: var(--champagne-pink-light);
+    border: none;
+    border-radius: 20px;
+    font-size: 1.1rem;
+}
+
+/*_______________Popup_______________*/
+
 
 .form-popup {
     display: none;
     position: fixed;
     width: 400px;
-
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    margin-top: -200px;
+    margin-left: -200px;
+    background: radial-gradient( var(--lilac-dark), var(--wisteria-dark));
+    /* background: radial-gradient(var(--champagne-pink-light), var(--thistle));  */
+    box-shadow: 2px 2px 20px  var(--wisteria-dark);
+    /* offset-x | offset-y | blur-radius | spread-radius | color */
+    z-index: 9;
+    border: none;
+    border-radius: 20px;
+    padding: 20px;
 }
 
 /* form {
@@ -149,7 +182,7 @@ legend {
 } */
 
 .read-status,
-.add-book {
+.form-add {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -176,14 +209,7 @@ input[type="tel"]:focus {
     /* offset-x | offset-y | blur-radius | spread-radius | color */
 }
 
-button {
-    padding: 10px 30px;
-    background-color: var(--wisteria-dark);
-    color: var(--champagne-pink-light);
-    border: none;
-    border-radius: 20px;
-    font-size: 1.1rem;
-}
+/*_______________Main_______________*/
 
 .main {
     /* background-image: url('img/bg.jpg'); */
@@ -227,6 +253,8 @@ button {
     left: 0px;
     opacity: 0.7;
 }
+
+/*_______________Footer_______________*/
 
 .footer {
     font-weight: 700;
