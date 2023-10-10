@@ -48,4 +48,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/Window/prompt
 How to center a position: fixed element:
 https://stackoverflow.com/questions/2005954/center-a-positionfixed-element
 
+How to blrur background when a popup appears:
+https://stackoverflow.com/questions/74440193/how-to-fade-background-when-popup-appears
+
 
