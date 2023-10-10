@@ -106,7 +106,7 @@ html {
     color: var(--champagne-pink)
 }
 
-.user-form {
+.add-section {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -115,7 +115,14 @@ html {
     background: linear-gradient(var(--wisteria), var(--thistle), var(--wisteria));
 }
 
-form {
+.form-popup {
+    display: none;
+    position: fixed;
+    width: 400px;
+
+}
+
+/* form {
     display: flex;
     flex-direction: column;
 }
@@ -125,14 +132,14 @@ legend {
     margin-bottom: 5px;
 }
 
-.user-inputs {
+.add-section {
     /* display: grid;
     grid-template-columns: repeat(3, minmax(150px, 2fr)) 70px 120px;
     gap: 20px; */
-    display: flex;
+    /* display: flex;
     justify-content: center;
     align-items: center;
-}
+} */ */
 
 /* .book-title,
 .book-author,
