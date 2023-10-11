@@ -8,36 +8,39 @@
     <script type="text/javascript" src="script.js" defer></script>
 </head>
 <body>
+    <div class="form-popup">
+        <form action="" method="post">
+            <legend>Add a new book</legend>
+            <div class="user-inputs">
+                <div class="book-title">
+                    <label for="title">Book Title:</label>
+                    <input type="text" id="title"  name="title" placeholder="Eragon">
+                </div>
+                <div class="book-author">
+                    <label for="author">Author:</label>
+                    <input type="text" id="author"  name="author" placeholder="Christopher Paolini">
+                </div>
+                <div class="pages">
+                    <label for="pages">Number of Pages:</label>
+                    <input type="tel" id="pages"  name="pages" placeholder="509">
+                </div>
+                <div class="read-status">
+                    <label for="read">Have you read it?</label>
+                    <input type="checkbox" id="read"  name="read">
+                </div>
+                <div class="form-add">
+                    <button>Add</button>
+                </div>
+            </div>
+        </form>
+        
+    </div>
     <div class="container">
         <div class="header">
             <h1>My Library</h1>
         </div>
         <div class="add-section">
-            <div class="form-popup">
-                <form action="" method="post">
-                    <div class="user-inputs">
-                        <div class="book-title">
-                            <label for="title">Book Title:</label>
-                            <input type="text" id="title"  name="title" placeholder="Eragon">
-                        </div>
-                        <div class="book-author">
-                            <label for="author">Author:</label>
-                            <input type="text" id="author"  name="author" placeholder="Christopher Paolini">
-                        </div>
-                        <div class="pages">
-                            <label for="pages">Number of Pages:</label>
-                            <input type="tel" id="pages"  name="pages" placeholder="509">
-                        </div>
-                        <div class="read-status">
-                            <label for="read">Read:</label>
-                            <input type="checkbox" id="read"  name="read">
-                        </div>
-                        <div class="form-add">
-                            <button>Add</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
+            
             <button class="add-book">Click me to add a book</button>
         </div>
         <div class="main">
