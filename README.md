@@ -45,6 +45,9 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_images/Using_CSS_gradients
 window.prompt() method:
 https://developer.mozilla.org/en-US/docs/Web/API/Window/prompt
 
+How to create a popup form:
+https://www.w3schools.com/howto/howto_js_popup_form.asp
+
 How to center a position: fixed element:
 https://stackoverflow.com/questions/2005954/center-a-positionfixed-element
 
