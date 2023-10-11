@@ -87,15 +87,95 @@ html {
     display: grid;
     grid-template-rows: 120px 80px 1fr 50px;
     height: 100vh;
+    
 }
 
 .blurry {
-    filter: blur(5px);
+    filter: brightness(50%);
 }
 
 /* div {
     border: 1px solid gray;
 } */
+
+/*_______________Popup_______________*/
+
+
+.form-popup {
+    display: none;
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    margin-top: -200px;
+    margin-left: -200px;
+    /* background: radial-gradient( var(--lilac-dark), var(--wisteria-dark)); */
+    background: radial-gradient(var(--french-gray), var(--thistle)); 
+    z-index: 9;
+    border: none;
+    border-radius: 20px;
+    padding: 30px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+legend {
+    align-self: center;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+}
+
+.book-title > label,
+.book-author > label,
+.pages > label {
+    display: flex;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="tel"] {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    border: 0;
+    outline: 0;
+    padding: 5px;
+    background-color: var(--champagne-pink-light);
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus {
+    box-shadow: 2px 2px 4px var(--wisteria-dark);
+    /* offset-x | offset-y | blur-radius | spread-radius | color */
+}
+
+.read-status {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.read-status > label {
+    font-size: 1.3rem;
+}
+
+input[type="checkbox"] {
+    margin-left: 10px;
+}
+
+.form-add > button {
+    width: 100%;
+    font-size: 1.2rem;
+}
+
+
 
 /*_______________Header_______________*/
 
@@ -133,81 +213,7 @@ button {
     font-size: 1.1rem;
 }
 
-/*_______________Popup_______________*/
 
-
-.form-popup {
-    display: none;
-    position: fixed;
-    width: 400px;
-    height: 400px;
-    top: 50%;
-    left: 50%;
-    margin-top: -200px;
-    margin-left: -200px;
-    background: radial-gradient( var(--lilac-dark), var(--wisteria-dark));
-    /* background: radial-gradient(var(--champagne-pink-light), var(--thistle));  */
-    box-shadow: 2px 2px 20px  var(--wisteria-dark);
-    /* offset-x | offset-y | blur-radius | spread-radius | color */
-    z-index: 9;
-    border: none;
-    border-radius: 20px;
-    padding: 20px;
-}
-
-/* form {
-    display: flex;
-    flex-direction: column;
-}
-
-legend {
-    font-size: 1.2rem;
-    margin-bottom: 5px;
-}
-
-.add-section {
-    /* display: grid;
-    grid-template-columns: repeat(3, minmax(150px, 2fr)) 70px 120px;
-    gap: 20px; */
-    /* display: flex;
-    justify-content: center;
-    align-items: center;
-} */ */
-
-/* .book-title,
-.book-author,
-.pages {
-    display: flex;
-    flex-direction: column;
-} */
-
-.read-status,
-.form-add {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-}
-
-label {
-    font-size: 0.8rem;
-    margin-bottom: 3px;
-}
-
-input[type="text"],
-input[type="tel"] {
-    width: 90%;
-    border-radius: 8px;
-    border: 0;
-    outline: 0;
-    padding: 3px;
-    background-color: var(--champagne-pink-light);
-}
-
-input[type="text"]:focus,
-input[type="tel"]:focus {
-    box-shadow: 2px 2px 4px var(--wisteria-dark);
-    /* offset-x | offset-y | blur-radius | spread-radius | color */
-}
 
 /*_______________Main_______________*/
 
