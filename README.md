@@ -61,4 +61,5 @@ https://stackoverflow.com/questions/2005954/center-a-positionfixed-element
 How to blur background when a popup appears:
 https://stackoverflow.com/questions/74440193/how-to-fade-background-when-popup-appears
 
-
+Looping through an array of objects:
+https://www.geeksforgeeks.org/how-to-loop-through-an-array-containing-multiple-objects-and-access-their-properties-in-javascript/
