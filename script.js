@@ -40,18 +40,23 @@ function Book(title, author, pages, read) {
     }
 }
 
-const hP1 = new Book("Harry Potter and the Philisoper's Stone", "J.K. Rowling", 223, true);
+// const hP1 = new Book("Harry Potter and the Philisoper's Stone", "J.K. Rowling", 223, true);
 
-const eragon = new Book("Eragon", "Christopher Paolini", 509, false);
+// const eragon = new Book("Eragon", "Christopher Paolini", 509, false);
  
-console.log(hP1.read);
-console.log(eragon.read);
+// console.log(hP1.read);
+// console.log(eragon.read);
 
-console.log(hP1.info());
-console.log(eragon.info());
+// console.log(hP1.info());
+// console.log(eragon.info());
 
 
 
 function addBookToLibrary(title, author, pages, read) {
-    
+    myLibrary.push(new Book(title, author, pages, read)); 
+    console.log(myLibrary);
 }
+
+addBookToLibrary("Harry Potter and the Philisoper's Stone", "J.K. Rowling", 223, true);
+
+addBookToLibrary("Eragon", "Christopher Paolini", 509, false);
