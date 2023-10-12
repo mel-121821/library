@@ -2,7 +2,20 @@
 
 //_____My Library Array_____
 
-const myLibrary = [];
+const myLibrary = [
+    {
+        title: "The hobbit",
+        author: "J.R.R Tolkien",
+        pages:  310,
+        read: true
+    },
+    {
+        title: "Silverwing",
+        author: "Kenneth Oppel",
+        pages:  228,
+        read: true 
+    }
+];
 
 
 
@@ -60,3 +73,14 @@ function addBookToLibrary(title, author, pages, read) {
 addBookToLibrary("Harry Potter and the Philisoper's Stone", "J.K. Rowling", 223, true);
 
 addBookToLibrary("Eragon", "Christopher Paolini", 509, false);
+
+function displayBook(myLibrary) {
+    for (let book in Object.keys(myLibrary)) {
+        console.log(book);
+        for (let key in myLibrary[book]) {
+            console.log(myLibrary[book][key])
+        }
+    }
+}
+
+displayBook(myLibrary);
