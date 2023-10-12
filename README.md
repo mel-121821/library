@@ -1,10 +1,10 @@
 Project: Library
 
-Instruction:
+_______________Instructions_______________
 
 - [x] If you haven’t already, set up your project with skeleton HTML/CSS and JS files.
 
-- [ ] All of your book objects are going to be stored in a simple array, so add a function to the script (not the constructor) that can take user’s input and store the new book objects into an array. Your code should look something like this:
+- [x] All of your book objects are going to be stored in a simple array, so add a function to the script (not the constructor) that can take user’s input and store the new book objects into an array. Your code should look something like this:
 
 const myLibrary = [];
 
@@ -28,16 +28,23 @@ function addBookToLibrary() {
 
 NOTE: You’re not required to add any type of storage right now. You will have the option to come back to this project later on in the course.
 
-Media References:
+
+
+________________Media_______________
 
 bg: Vicki Hamilton (flutie8211) - Pixabay
 
-Tools:
+
+
+_______________Tools:_______________
 
 Pull color palette from an image: 
 https://coolors.co/image-picker
 
-Resources:
+
+
+
+_______________Resources:________________
 
 Gradients:
 https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_images/Using_CSS_gradients
@@ -51,7 +58,7 @@ https://www.w3schools.com/howto/howto_js_popup_form.asp
 How to center a position: fixed element:
 https://stackoverflow.com/questions/2005954/center-a-positionfixed-element
 
-How to blrur background when a popup appears:
+How to blur background when a popup appears:
 https://stackoverflow.com/questions/74440193/how-to-fade-background-when-popup-appears
 
 
