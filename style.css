@@ -241,11 +241,24 @@ button {
 } */
 
 .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    padding: 20px;
     height: 250px;
     width: 300px;
-    background-color: var(--wisteria-dark);
+    gap: 20px;
+    color: var(--champagne-pink-light);
+    background: linear-gradient(to bottom right,var(--wisteria-dark), var(--lilac-dark));
     position: relative;
     /* To make the book cards solid */
+}
+
+.card > div:nth-child(1) {
+    font-size: 1.6rem;
+    text-align: center;
 }
 
 .main::before {
