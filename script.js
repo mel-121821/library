@@ -27,6 +27,8 @@ const formPopup = document.querySelector('.form-popup')
 
 const container = document.querySelector('.container');
 
+const cardContainer = document.querySelector('.card-container')
+
 addButton.addEventListener('click', function() {
     console.log("clicked")
     formPopup.style.display = "block";
@@ -67,7 +69,7 @@ function Book(title, author, pages, read) {
 
 function addBookToLibrary(title, author, pages, read) {
     myLibrary.push(new Book(title, author, pages, read)); 
-    console.log(myLibrary);
+    // console.log(myLibrary);
 }
 
 addBookToLibrary("Harry Potter and the Philisoper's Stone", "J.K. Rowling", 223, true);
@@ -76,10 +78,18 @@ addBookToLibrary("Eragon", "Christopher Paolini", 509, false);
 
 function displayBook(myLibrary) {
     for (let book in Object.keys(myLibrary)) {
+        let card = document.createElement('div');
+        card.classList.add('card');
         console.log(book);
         for (let key in myLibrary[book]) {
-            console.log(myLibrary[book][key])
+            console.log(key);
+            console.log(typeof(key));
+            console.log(myLibrary[book][key]);
+            let cardData = document.createElement('div');
+            cardData.textContent = `${(key).replace(/^./, (key[0]).toUpperCase())}: ${myLibrary[book][key]}`;
+            card.appendChild(cardData);
         }
+        cardContainer.appendChild(card);
     }
 }
 
