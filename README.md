@@ -63,3 +63,9 @@ https://stackoverflow.com/questions/74440193/how-to-fade-background-when-popup-a
 
 Looping through an array of objects:
 https://www.geeksforgeeks.org/how-to-loop-through-an-array-containing-multiple-objects-and-access-their-properties-in-javascript/
+
+Making cards with JS:
+https://stackoverflow.com/questions/52739898/making-cards-with-javascript-and-html
+
+Change first letter to uppercase in JS:
+https://www.geeksforgeeks.org/how-to-make-first-letter-of-a-string-uppercase-in-javascript/
