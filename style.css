@@ -234,17 +234,17 @@ button {
     padding: 50px 0px;
 }
 
-.card {
+/* .card {
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 
-.book {
+.card {
     height: 250px;
     width: 300px;
     background-color: var(--wisteria-dark);
-    /* position: relative; */
+    position: relative;
     /* To make the book cards solid */
 }
 
