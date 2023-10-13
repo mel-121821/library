@@ -43,16 +43,16 @@ function Book(title, author, pages, read) {
     this.author = author
     this.pages = pages
     this.read = Boolean(read);
-    this.info = function() {
-        if (this.read === true) {
-            let string = "read"
-            return `${title} by ${author}, ${pages} pages, ${string}.`
-        } else {
-            let string = "not read yet"
-            return `${title} by ${author}, ${pages} pages, ${string}.`
-        }
+    // this.info = function() {
+    //     if (this.read === true) {
+    //         let string = "read"
+    //         return `${title} by ${author}, ${pages} pages, ${string}.`
+    //     } else {
+    //         let string = "not read yet"
+    //         return `${title} by ${author}, ${pages} pages, ${string}.`
+    //     }
         
-    }
+    // }
 }
 
 // const hP1 = new Book("Harry Potter and the Philisoper's Stone", "J.K. Rowling", 223, true);
@@ -86,7 +86,7 @@ function displayBook(myLibrary) {
             console.log(typeof(key));
             console.log(myLibrary[book][key]);
             let cardData = document.createElement('div');
-            cardData.textContent = `${(key).replace(/^./, (key[0]).toUpperCase())}: ${myLibrary[book][key]}`;
+            cardData.textContent = `${myLibrary[book][key]}`;
             card.appendChild(cardData);
         }
         cardContainer.appendChild(card);
@@ -94,3 +94,7 @@ function displayBook(myLibrary) {
 }
 
 displayBook(myLibrary);
+
+
+// Code to include capitalized object key on the card
+// cardData.textContent = `${(key).replace(/^./, (key[0]).toUpperCase())}: ${myLibrary[book][key]}`;
