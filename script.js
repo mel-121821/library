@@ -80,14 +80,22 @@ function displayBook(myLibrary) {
     for (let book in Object.keys(myLibrary)) {
         let card = document.createElement('div');
         card.classList.add('card');
-        console.log(book);
         for (let key in myLibrary[book]) {
-            console.log(key);
-            console.log(typeof(key));
-            console.log(myLibrary[book][key]);
-            let cardData = document.createElement('div');
-            cardData.textContent = `${myLibrary[book][key]}`;
-            card.appendChild(cardData);
+            if (key === "read") {
+                if (myLibrary[book][key] === true) {
+                    let cardData = document.    createElement('div');
+                    cardData.textContent = `I have read this book`
+                    card.appendChild(cardData);
+                } else {
+                    let cardData = document.createElement('div');
+                    cardData.textContent = `I have not read this book`
+                    card.appendChild(cardData);
+                }
+            } else {
+                let cardData = document.createElement('div');
+                cardData.textContent = `${myLibrary[book][key]}`;
+                card.appendChild(cardData);
+            }
         }
         cardContainer.appendChild(card);
     }
@@ -98,3 +106,37 @@ displayBook(myLibrary);
 
 // Code to include capitalized object key on the card
 // cardData.textContent = `${(key).replace(/^./, (key[0]).toUpperCase())}: ${myLibrary[book][key]}`;
+
+
+
+// _____Problem code to be fixed_____
+
+// This code executes both the first if statement and the else statement when read === true. 
+// function displayBook(myLibrary) {
+//     for (let book in Object.keys(myLibrary)) {
+//         let card = document.createElement('div');
+//         card.classList.add('card');
+//         console.log(book);
+//         for (let key in myLibrary[book]) {
+//             if (key === "read" && myLibrary[book][key] === true) {
+//                 console.log(myLibrary[book][key]);
+//                 let cardData = document.createElement('div');
+//                 cardData.textContent = `This is working ${(key)}: ${myLibrary[book][key]}`
+//                 card.appendChild(cardData);
+//             } if (key === "read" && myLibrary[book][key] === false) {
+//                 console.log(myLibrary[book][key]);
+//                 let cardData = document.createElement('div');
+//                 cardData.textContent = `This is working ${(key)}: ${myLibrary[book][key]}`
+//                 card.appendChild(cardData);
+//             } else {
+//                 console.log(key);
+//                 // console.log(typeof(key));
+//                 console.log(myLibrary[book][key]);
+//                 let cardData = document.createElement('div');
+//                 cardData.textContent = `${myLibrary[book][key]}`;
+//                 card.appendChild(cardData);
+//             }
+//         }
+//         cardContainer.appendChild(card);
+//     }
+// }
