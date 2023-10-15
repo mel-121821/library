@@ -69,3 +69,6 @@ https://stackoverflow.com/questions/52739898/making-cards-with-javascript-and-ht
 
 Change first letter to uppercase in JS:
 https://www.geeksforgeeks.org/how-to-make-first-letter-of-a-string-uppercase-in-javascript/
+
+The dialog element:
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog
