@@ -29,10 +29,18 @@ const container = document.querySelector('.container');
 
 const cardContainer = document.querySelector('.card-container')
 
+const submitBook = document.querySelector('.form-add > button')
+
 addButton.addEventListener('click', function() {
-    console.log("clicked")
-    formPopup.style.display = "block";
-    container.classList.add('blurry');
+    console.log("clicked");
+    formPopup.showModal();
+    // formPopup.style.display = "block";
+    // container.classList.add('blurry');
+})
+
+submitBook.addEventListener('click', function(e) {
+    e.preventDefault();
+    console.log('Clicked add book')
 })
 
 
