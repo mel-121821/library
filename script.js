@@ -23,7 +23,12 @@ const myLibrary = [
 
 const addButton = document.querySelector('.add-book'); 
 
-const formPopup = document.querySelector('.form-popup')
+const formPopup = document.querySelector('.form-popup');
+
+const titleInput = document.querySelector('#title');
+const authorInput = document.querySelector('#author');
+const pagesInput = document.querySelector('#pages');
+const readInput = document.querySelector('#read');
 
 const container = document.querySelector('.container');
 
@@ -41,6 +46,15 @@ addButton.addEventListener('click', function() {
 submitBook.addEventListener('click', function(e) {
     e.preventDefault();
     console.log('Clicked add book')
+    console.log(title.value);
+    console.log(author.value);
+    console.log(pages.value);
+    console.log(read.checked);
+    addBookToLibrary(title.value, author.value, pages.value, read.checked);
+    console.log(myLibrary);
+    removeAllCards();
+    displayBook(myLibrary);
+    formPopup.close();
 })
 
 
@@ -74,13 +88,12 @@ function Book(title, author, pages, read) {
 // console.log(eragon.info());
 
 
-
 function addBookToLibrary(title, author, pages, read) {
     myLibrary.push(new Book(title, author, pages, read)); 
     // console.log(myLibrary);
 }
 
-addBookToLibrary("Harry Potter and the Philisoper's Stone", "J.K. Rowling", 223, true);
+addBookToLibrary("Harry Potter and the Philosopher's Stone", "J.K. Rowling", 223, true);
 
 addBookToLibrary("Eragon", "Christopher Paolini", 509, false);
 
@@ -111,6 +124,11 @@ function displayBook(myLibrary) {
 
 displayBook(myLibrary);
 
+function removeAllCards() {
+    for (let book in Object.keys(myLibrary)) {
+        card.remove();
+    }
+}
 
 // Code to include capitalized object key on the card
 // cardData.textContent = `${(key).replace(/^./, (key[0]).toUpperCase())}: ${myLibrary[book][key]}`;
