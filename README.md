@@ -72,3 +72,6 @@ https://www.geeksforgeeks.org/how-to-make-first-letter-of-a-string-uppercase-in-
 
 The dialog element:
 https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog
+
+Checkbox.checked property:
+https://www.w3schools.com/jsref/prop_checkbox_checked.asp
