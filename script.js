@@ -3,18 +3,18 @@
 //_____My Library Array_____
 
 const myLibrary = [
-    {
-        title: "The hobbit",
-        author: "J.R.R Tolkien",
-        pages:  310,
-        read: true
-    },
-    {
-        title: "Silverwing",
-        author: "Kenneth Oppel",
-        pages:  228,
-        read: true 
-    }
+    // {
+    //     title: "The hobbit",
+    //     author: "J.R.R Tolkien",
+    //     pages:  310,
+    //     read: true
+    // },
+    // {
+    //     title: "Silverwing",
+    //     author: "Kenneth Oppel",
+    //     pages:  228,
+    //     read: true 
+    // }
 ];
 
 
@@ -45,16 +45,12 @@ addButton.addEventListener('click', function() {
 
 submitBook.addEventListener('click', function(e) {
     e.preventDefault();
-    console.log('Clicked add book')
-    console.log(title.value);
-    console.log(author.value);
-    console.log(pages.value);
-    console.log(read.checked);
     addBookToLibrary(title.value, author.value, pages.value, read.checked);
     console.log(myLibrary);
-    removeAllCards();
+    refreshCardData();
     displayBook(myLibrary);
     formPopup.close();
+    // Add function to clear inputs
 })
 
 
@@ -93,9 +89,9 @@ function addBookToLibrary(title, author, pages, read) {
     // console.log(myLibrary);
 }
 
-addBookToLibrary("Harry Potter and the Philosopher's Stone", "J.K. Rowling", 223, true);
+// addBookToLibrary("Harry Potter and the Philosopher's Stone", "J.K. Rowling", 223, true);
 
-addBookToLibrary("Eragon", "Christopher Paolini", 509, false);
+// addBookToLibrary("Eragon", "Christopher Paolini", 509, false);
 
 function displayBook(myLibrary) {
     for (let book in Object.keys(myLibrary)) {
@@ -122,11 +118,22 @@ function displayBook(myLibrary) {
     }
 }
 
-displayBook(myLibrary);
-
-function removeAllCards() {
-    for (let book in Object.keys(myLibrary)) {
+function refreshCards() {
+    if (document.getElementsByClassName('.card') === true) {
+        console.log('There are cards on the page');
         card.remove();
+    } else {
+        console.log('No cards on page');
+    }
+}
+
+// displayBook(myLibrary);
+
+function refreshCardData() {
+    console.log(cardContainer.firstChild);
+    while (cardContainer.firstChild) {
+        cardContainer.removeChild(cardContainer.lastChild);
+        console.log(cardContainer.childNodes);
     }
 }
 
