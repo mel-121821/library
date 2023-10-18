@@ -75,3 +75,6 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog
 
 Checkbox.checked property:
 https://www.w3schools.com/jsref/prop_checkbox_checked.asp
+
+Removing all child elements in a DOM node:
+https://stackoverflow.com/questions/3955229/remove-all-child-elements-of-a-dom-node-in-javascript
