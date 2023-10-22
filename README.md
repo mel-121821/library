@@ -78,3 +78,6 @@ https://www.w3schools.com/jsref/prop_checkbox_checked.asp
 
 Removing all child elements in a DOM node:
 https://stackoverflow.com/questions/3955229/remove-all-child-elements-of-a-dom-node-in-javascript
+
+Clear input fields:
+https://www.tutorialspoint.com/how-to-clear-the-form-after-submitting-in-javascript-without-using-reset#:~:text=reset()%20is%20a%20built,the%20default%20in%20the%20form.
