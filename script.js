@@ -24,6 +24,7 @@ const myLibrary = [
 const addButton = document.querySelector('.add-book'); 
 
 const formPopup = document.querySelector('.form-popup');
+const form = document.querySelector('.form-popup > form');
 
 const titleInput = document.querySelector('#title');
 const authorInput = document.querySelector('#author');
@@ -49,8 +50,8 @@ submitBook.addEventListener('click', function(e) {
     console.log(myLibrary);
     refreshCardData();
     displayBook(myLibrary);
+    form.reset();
     formPopup.close();
-    // Add function to clear inputs
 })
 
 
@@ -115,15 +116,6 @@ function displayBook(myLibrary) {
             }
         }
         cardContainer.appendChild(card);
-    }
-}
-
-function refreshCards() {
-    if (document.getElementsByClassName('.card') === true) {
-        console.log('There are cards on the page');
-        card.remove();
-    } else {
-        console.log('No cards on page');
     }
 }
 
