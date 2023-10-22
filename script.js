@@ -99,7 +99,12 @@ function displayBook(myLibrary) {
         let card = document.createElement('div');
         card.classList.add('card');
         for (let key in myLibrary[book]) {
-            if (key === "read") {
+            if (key === "pages") {
+                let cardData = document.    createElement('div');
+                cardData.textContent = `${myLibrary[book][key]} pages`
+                card.appendChild(cardData);
+            } 
+            else if (key === "read") {
                 if (myLibrary[book][key] === true) {
                     let cardData = document.    createElement('div');
                     cardData.textContent = `I have read this book`
