@@ -3,18 +3,18 @@
 //_____My Library Array_____
 
 const myLibrary = [
-    // {
-    //     title: "The hobbit",
-    //     author: "J.R.R Tolkien",
-    //     pages:  310,
-    //     read: true
-    // },
-    // {
-    //     title: "Silverwing",
-    //     author: "Kenneth Oppel",
-    //     pages:  228,
-    //     read: true 
-    // }
+    {
+        title: "The hobbit",
+        author: "J.R.R Tolkien",
+        pages:  310,
+        read: true
+    },
+    {
+        title: "Silverwing",
+        author: "Kenneth Oppel",
+        pages:  228,
+        read: true 
+    }
 ];
 
 
@@ -36,6 +36,8 @@ const container = document.querySelector('.container');
 const cardContainer = document.querySelector('.card-container')
 
 const submitBook = document.querySelector('.form-add > button')
+
+//________________________________
 
 addButton.addEventListener('click', function() {
     console.log("clicked");
@@ -96,15 +98,17 @@ function addBookToLibrary(title, author, pages, read) {
 
 function displayBook(myLibrary) {
     for (let book in Object.keys(myLibrary)) {
+        console.log([book]);
         let card = document.createElement('div');
+        card.dataset.index = [book];
+        console.log(card.dataset.index);
         card.classList.add('card');
         for (let key in myLibrary[book]) {
             if (key === "pages") {
                 let cardData = document.    createElement('div');
                 cardData.textContent = `${myLibrary[book][key]} pages`
                 card.appendChild(cardData);
-            } 
-            else if (key === "read") {
+            } else if (key === "read") {
                 if (myLibrary[book][key] === true) {
                     let cardData = document.    createElement('div');
                     cardData.textContent = `I have read this book`
@@ -120,6 +124,13 @@ function displayBook(myLibrary) {
                 card.appendChild(cardData);
             }
         }
+        let removeBtn = document.createElement('button');
+        removeBtn.innerHTML = "Remove";
+        removeBtn.classList.add('remove-btn')
+        removeBtn.addEventListener('click', function(e) {
+            console.log(`User wants to remove book ${[book]}`)
+        })
+        card.appendChild(removeBtn);
         cardContainer.appendChild(card);
     }
 }
@@ -133,6 +144,9 @@ function refreshCardData() {
         console.log(cardContainer.childNodes);
     }
 }
+
+
+
 
 // Code to include capitalized object key on the card
 // cardData.textContent = `${(key).replace(/^./, (key[0]).toUpperCase())}: ${myLibrary[book][key]}`;
