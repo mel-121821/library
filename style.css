@@ -278,6 +278,14 @@ button {
     text-align: center;
 }
 
+.remove-btn {
+    width: 80%;
+    background: linear-gradient(var(--wisteria), var(--french-gray), var(--wisteria));
+    color: var(--wisteria-dark);
+    font-weight: 700;
+    padding: 7px 30px;
+}
+
 .main::before {
     content: "";
     background-image: url('img/bg.jpg');
