@@ -81,3 +81,25 @@ https://stackoverflow.com/questions/3955229/remove-all-child-elements-of-a-dom-n
 
 Clear input fields:
 https://www.tutorialspoint.com/how-to-clear-the-form-after-submitting-in-javascript-without-using-reset#:~:text=reset()%20is%20a%20built,the%20default%20in%20the%20form.
+
+Data Attributes:
+https://blog.webdevsimplified.com/2020-10/javascript-data-attributes/
+
+https://javascript.plainenglish.io/quick-guide-to-using-data-attributes-f1f2c3161d5f
+
+https://plainjs.com/javascript/attributes/setting-getting-and-removing-data-attributes-8/
+
+Removing and item from an array:
+https://www.geeksforgeeks.org/different-ways-to-delete-an-item-from-an-array-using-javascript/
+
+Selecting an item that was created with JS in JS: 
+https://stackoverflow.com/questions/35349212/select-an-html-element-created-with-js-in-js
+
+Array.splice():
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
+
+Problems with HTML required tag not working (solution: set event listener to submit instead of click):
+https://stackoverflow.com/questions/17966390/how-do-i-make-a-field-required-in-html
+
+
+
