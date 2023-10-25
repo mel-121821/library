@@ -46,7 +46,8 @@ addButton.addEventListener('click', function() {
     // container.classList.add('blurry');
 })
 
-submitBook.addEventListener('click', function(e) {
+// used the onSubmit instead of click, otherwise the HTML required tag would not work
+form.addEventListener('submit', function(e) {
     e.preventDefault();
     addBookToLibrary(title.value, author.value, pages.value, read.checked);
     console.log(myLibrary);
@@ -125,14 +126,22 @@ function displayBook(myLibrary) {
             }
         }
         let removeBtn = document.createElement('button');
-        removeBtn.innerHTML = "Remove";
+        removeBtn.textContent = "Remove";
         removeBtn.classList.add('remove-btn')
         removeBtn.addEventListener('click', function(e) {
-            console.log(`User wants to remove book ${[book]}`)
+            console.log(`User wants to remove book ${[book]}`);
+            removeBookFromLibrary(myLibrary, [book]);
+            refreshCardData();
+            displayBook(myLibrary);
         })
         card.appendChild(removeBtn);
         cardContainer.appendChild(card);
     }
+}
+
+function removeBookFromLibrary(mylibrary, book) {
+    myLibrary.splice([book], 1);
+    return myLibrary;
 }
 
 // displayBook(myLibrary);
@@ -144,6 +153,23 @@ function refreshCardData() {
         console.log(cardContainer.childNodes);
     }
 }
+
+// function getRemoveBtn () {
+//     if (cardContainer.firstChild) {
+//         const removeBookBtn = document.querySelector('.remove-btn');
+//         console.log(removeBookBtn);
+//         const bookCard = document.querySelector('.card');
+//         console.log(bookCard);
+//         // console.log(bookCard.dataset.index)
+//         // removeBookBtn.addEventListener('click', function(e) {
+//         //     console.log(`User wants to remove book ${bookCard.dataset.index}`);
+//             // removeBookFromLibrary(myLibrary, [book]);
+//             // refreshCardData();
+//         }
+//     }
+
+
+// getRemoveBtn();
 
 
 
