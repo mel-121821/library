@@ -101,5 +101,5 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 Problems with HTML required tag not working (solution: set event listener to submit instead of click):
 https://stackoverflow.com/questions/17966390/how-do-i-make-a-field-required-in-html
 
-
-
+Submit event listener not working (solution: the submit event listener can only work on a form tag):
+https://stackoverflow.com/questions/32637920/why-does-a-submit-event-listener-not-work-on-a-submit-button
