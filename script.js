@@ -46,7 +46,8 @@ addButton.addEventListener('click', function() {
     // container.classList.add('blurry');
 })
 
-// used the onSubmit instead of click, otherwise the HTML required tag would not work
+// used form instead of submitButton because "submit" will only work if used on a form tag 
+// also used "submit" instead of "click", otherwise the HTML required tag would not work
 form.addEventListener('submit', function(e) {
     e.preventDefault();
     addBookToLibrary(title.value, author.value, pages.value, read.checked);
@@ -77,6 +78,20 @@ function Book(title, author, pages, read) {
     // }
 }
 
+// console.log(Object.getPrototypeOf(Book));
+
+Book.prototype.updateReadStatus = function() {
+    console.log("Prototype set")
+    return `${this.read}`;
+    // console.log(this.read);
+    // if (this.read === true) {
+    //     this.read = false;
+    // } else {
+    //     this.read = true;
+    // }
+    // return this.read;
+}
+
 // const hP1 = new Book("Harry Potter and the Philisoper's Stone", "J.K. Rowling", 223, true);
 
 // const eragon = new Book("Eragon", "Christopher Paolini", 509, false);
@@ -97,47 +112,127 @@ function addBookToLibrary(title, author, pages, read) {
 
 // addBookToLibrary("Eragon", "Christopher Paolini", 509, false);
 
-function displayBook(myLibrary) {
-    for (let book in Object.keys(myLibrary)) {
-        console.log([book]);
-        let card = document.createElement('div');
-        card.dataset.index = [book];
-        console.log(card.dataset.index);
-        card.classList.add('card');
-        for (let key in myLibrary[book]) {
-            if (key === "pages") {
-                let cardData = document.    createElement('div');
-                cardData.textContent = `${myLibrary[book][key]} pages`
-                card.appendChild(cardData);
-            } else if (key === "read") {
-                if (myLibrary[book][key] === true) {
-                    let cardData = document.    createElement('div');
-                    cardData.textContent = `I have read this book`
-                    card.appendChild(cardData);
-                } else {
-                    let cardData = document.createElement('div');
-                    cardData.textContent = `I have not read this book`
-                    card.appendChild(cardData);
-                }
-            } else {
-                let cardData = document.createElement('div');
-                cardData.textContent = `${myLibrary[book][key]}`;
-                card.appendChild(cardData);
-            }
+
+function displayBook (myLibrary) {
+    myLibrary.forEach((book, index, array) => {
+    // console.log(book.title);
+    let card = document.createElement('div');
+    card.classList.add('card');
+    card.dataset.index = index;
+    Object.values(book).forEach((value) => {
+        // console.log(key);
+        console.log(value);
+        console.log(typeof(value));
+        let cardData = document.createElement('div');
+        if (typeof value == "boolean") {
+            let toggleStatus = document.createElement('button');
+            toggleStatus.classList.add('read-toggle');
+              
+            toggleStatus.textContent = "Read";
+            card.appendChild(toggleStatus);
+            // Moved boolean check above number check because boolean values can be considered numbers (0 for false and 1 for true) and isNaN will pick up these values too if it is placed before the boolean code block
+        } else if (isNaN(value) === false) {
+            // HTML sees everything as strings, so instead of checking to see if value is a number, check to see if value can convert into a number instead
+        console.log("This value can be converted into a number");
+        cardData.textContent = `${value} pages`;
+        card.appendChild(cardData);
+        } else {
+            cardData.textContent = `${value}`;
+            card.appendChild(cardData);
         }
-        let removeBtn = document.createElement('button');
-        removeBtn.textContent = "Remove";
-        removeBtn.classList.add('remove-btn')
-        removeBtn.addEventListener('click', function(e) {
-            console.log(`User wants to remove book ${[book]}`);
-            removeBookFromLibrary(myLibrary, [book]);
-            refreshCardData();
-            displayBook(myLibrary);
-        })
+    
+
+        console.log(Object.values(book));
+    })
+    createRemoveBtn(book, card);
+    
+    console.log(card.dataset.index);
+    console.log(array);
+    cardContainer.appendChild(card);
+});
+}
+
+
+
+
+function createCard(book) {
+    let card = document.createElement('div');
+        card.dataset.index = [book];
+        // console.log(card.dataset.index);
+        card.classList.add('card');
+        card.textContent = `${book.title}`;
+        card.textContent = `${book.author}`;
+       
         card.appendChild(removeBtn);
         cardContainer.appendChild(card);
     }
+
+function createRemoveBtn(book, card) {
+    const removeBtn = document.createElement('button');
+    removeBtn.textContent = "Remove";
+    removeBtn.classList.add('remove-btn')
+    removeBtn.addEventListener('click', function(e) {
+        console.log(`User wants to remove book ${[book]}`);
+        removeBookFromLibrary(myLibrary, [book]);
+        refreshCardData();
+        displayBook(myLibrary);
+    })
+    card.appendChild(removeBtn);
 }
+
+
+// function displayBook(myLibrary) {
+//     for (let book in Object.keys(myLibrary)) {
+//         console.log([book]);
+//         let card = document.createElement('div');
+//         card.dataset.index = [book];
+//         // console.log(card.dataset.index);
+//         card.classList.add('card');
+//         for (let key in myLibrary[book]) {
+//             console.log(myLibrary[book][key]);
+//             if (key === "pages") {
+//                 let cardData = document.    createElement('div');
+//                 cardData.textContent = `${myLibrary[book][key]} pages`
+//                 card.appendChild(cardData);
+//             } else if (key === "read") {
+//                 let toggleStatus = document.createElement('button');
+//                 toggleStatus.classList.add('read-toggle');
+//                 // toggleStatus.addEventListener('click', function() {
+
+//                 // })
+//                 toggleStatus.textContent = "Read";
+//                 card.appendChild(toggleStatus);
+//                 // console.log(Object.getPrototypeOf(book));
+//                 console.log(Object.getPrototypeOf(myLibrary[book]));
+//                 myLibrary[book].updateReadStatus();
+//                 // if (myLibrary[book][key] === true) {
+//                 //     let cardData = document.    createElement('div');
+//                 //     cardData.textContent = `I have read this book`
+//                 //     card.appendChild(cardData);
+//                 // } else {
+//                 //     let cardData = document.createElement('div');
+//                 //     cardData.textContent = `I have not read this book`
+//                 //     card.appendChild(cardData);
+//                 // }
+//             } else {
+//                 let cardData = document.createElement('div');
+//                 cardData.textContent = `${myLibrary[book][key]}`;
+//                 card.appendChild(cardData);
+//             }
+//         }
+//         let removeBtn = document.createElement('button');
+//         removeBtn.textContent = "Remove";
+//         removeBtn.classList.add('remove-btn')
+//         removeBtn.addEventListener('click', function(e) {
+//             console.log(`User wants to remove book ${[book]}`);
+//             removeBookFromLibrary(myLibrary, [book]);
+//             refreshCardData();
+//             displayBook(myLibrary);
+//         })
+//         card.appendChild(removeBtn);
+//         cardContainer.appendChild(card);
+//     }
+// }
 
 function removeBookFromLibrary(mylibrary, book) {
     myLibrary.splice([book], 1);
