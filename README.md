@@ -103,3 +103,26 @@ https://stackoverflow.com/questions/17966390/how-do-i-make-a-field-required-in-h
 
 Submit event listener not working (solution: the submit event listener can only work on a form tag):
 https://stackoverflow.com/questions/32637920/why-does-a-submit-event-listener-not-work-on-a-submit-button
+
+Javascript Array forEach() Method:
+https://www.geeksforgeeks.org/javascript-array-foreach-method/
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
+https://www.freecodecamp.org/news/javascript-foreach-how-to-loop-through-an-array-in-js/
+
+Input type-number still returns a string:
+https://stackoverflow.com/questions/35791767/html-input-type-number-still-returning-a-string-when-accessed-from-javascript
+
+Prototype inheritance (see part on for... in loop iterating over inherited properties):
+https://javascript.info/prototype-inheritance
+
+Object keys, values and entries:
+https://www.educative.io/answers/how-to-get-keys-values-and-entries-in-javascript-object
+
+Check if variable is a number (even if it is in string form):
+https://stackoverflow.com/questions/175739/how-can-i-check-if-a-string-is-a-valid-number
+
+isNaN() with booleans:
+https://stackoverflow.com/questions/60097714/why-isnantrue-or-isnanfalse-is-returning-false
+
+More info on isNaN:
+https://stackoverflow.com/questions/115548/why-is-isnannull-false-in-js
