@@ -278,7 +278,8 @@ button {
     text-align: center;
 }
 
-.remove-btn {
+.remove-btn,
+.read-toggle {
     width: 80%;
     background: linear-gradient(var(--wisteria), var(--french-gray), var(--wisteria));
     color: var(--wisteria-dark);
