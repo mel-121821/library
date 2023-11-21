@@ -126,3 +126,6 @@ https://stackoverflow.com/questions/60097714/why-isnantrue-or-isnanfalse-is-retu
 
 More info on isNaN:
 https://stackoverflow.com/questions/115548/why-is-isnannull-false-in-js
+
+Using Ternary Operators:
+https://www.freecodecamp.org/news/the-ternary-operator-in-javascript/
