@@ -3,18 +3,18 @@
 //_____My Library Array_____
 
 const myLibrary = [
-    {
-        title: "The hobbit",
-        author: "J.R.R Tolkien",
-        pages:  310,
-        read: true
-    },
-    {
-        title: "Silverwing",
-        author: "Kenneth Oppel",
-        pages:  228,
-        read: true 
-    }
+    // {
+    //     title: "The hobbit",
+    //     author: "J.R.R Tolkien",
+    //     pages:  310,
+    //     read: true
+    // },
+    // {
+    //     title: "Silverwing",
+    //     author: "Kenneth Oppel",
+    //     pages:  228,
+    //     read: true 
+    // }
 ];
 
 
@@ -38,25 +38,6 @@ const cardContainer = document.querySelector('.card-container')
 const submitBook = document.querySelector('.form-add > button')
 
 //________________________________
-
-addButton.addEventListener('click', function() {
-    console.log("clicked");
-    formPopup.showModal();
-    // formPopup.style.display = "block";
-    // container.classList.add('blurry');
-})
-
-// used form instead of submitButton because "submit" will only work if used on a form tag 
-// also used "submit" instead of "click", otherwise the HTML required tag would not work
-form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    addBookToLibrary(title.value, author.value, pages.value, read.checked);
-    // console.log(myLibrary);
-    refreshCardData();
-    displayBook(myLibrary);
-    form.reset();
-    formPopup.close();
-})
 
 
 // _____Object constructor_____
@@ -82,15 +63,33 @@ function Book(title, author, pages, read) {
 
 Book.prototype.updateReadStatus = function() {
     console.log("Prototype set")
-    return `${this.read}`;
-    // console.log(this.read);
-    // if (this.read === true) {
-    //     this.read = false;
-    // } else {
-    //     this.read = true;
-    // }
-    // return this.read;
+    console.log(this.read);
+    this.read === true ? this.read = false : this.read = true;
+    return this.read;
 }
+
+
+addButton.addEventListener('click', function() {
+    console.log("clicked");
+    formPopup.showModal();
+    // formPopup.style.display = "block";
+    // container.classList.add('blurry');
+})
+
+// used form instead of submitButton because "submit" will only work if used on a form tag 
+// also used "submit" instead of "click", otherwise the HTML required tag would not work
+form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    addBookToLibrary(title.value, author.value, pages.value, read.checked);
+    // console.log(myLibrary);
+    refreshCardData();
+    displayBook(myLibrary);
+    form.reset();
+    formPopup.close();
+})
+
+
+
 
 
 function addBookToLibrary(title, author, pages, read) {
@@ -105,41 +104,46 @@ function displayBook(myLibrary) {
     let card = document.createElement('div');
     card.classList.add('card');
     card.dataset.index = index;
-    Object.values(book).forEach((value, index) => {
-        // console.log(key);
-        // console.log(value);
-        // console.log(typeof(value));
-        let cardData = document.createElement('div');
+    Object.values(book).forEach((value, valueIndex) => {
         if (typeof value == "boolean") {
-            let toggleStatus = document.createElement('button');
-            toggleStatus.classList.add('read-toggle');
-              
-            toggleStatus.textContent = "Read";
-            card.appendChild(toggleStatus);
-            // Moved boolean check above number check because boolean values can be considered numbers (0 for false and 1 for true) and isNaN will pick up these values too if it is placed before the boolean code block
-        } else if (index != 0 && isNaN(value) === false) {
-            console.log(value, index);
-            // HTML sees everything as strings, so instead of checking to see if value is a number, check to see if value can convert into a number instead
+
+        } else if (valueIndex != 0 && isNaN(value) === false) {
+            let cardData = document.createElement('div');
+            // HTML sees everything as strings, so instead of checking to see if value is a number, check to see if value can convert into a number instead.
+            // Also use index to prevent code from adding "pages" after book title if it is a number
         // console.log("This value can be converted into a number");
         cardData.textContent = `${value} pages`;
         card.appendChild(cardData);
         } else {
+            let cardData = document.createElement('div');
             cardData.textContent = `${value}`;
             card.appendChild(cardData);
         }
-    
-
         // console.log(Object.values(book));
     })
+    let toggleStatus = document.createElement('button');
+    toggleStatus.classList.add('read-toggle');
+    toggleStatus.addEventListener('click', function(e) {
+        book.updateReadStatus();
+        setToggleText(book.read, toggleStatus)
+    })
+    console.log(book);
+    console.log(book.read)
+    setToggleText(book.read, toggleStatus);
+    // this.read === true ? toggleStatus.textContent = "Read" : toggleStatus.textContent = "Not read yet";
+    card.appendChild(toggleStatus);
     createRemoveBtn(index, card);
     
     console.log(card.dataset.index);
-    console.log(array);
+    console.log(card);
+    // console.log(array);
     cardContainer.appendChild(card);
 });
 }
 
-
+function setToggleText(boolean, toggleStatus) {
+    boolean === true ? toggleStatus.textContent = "Read" : toggleStatus.textContent = "Not read yet"
+}
 
 
 
