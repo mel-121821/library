@@ -87,8 +87,8 @@ function displayBook(myLibrary) {
             let cardData = document.createElement('div');
             // HTML sees everything as strings, so instead of checking to see if value is a number, check to see if value can convert into a number instead.
             // Also use index to prevent code from adding "pages" after book title if it is a number
-        cardData.textContent = `${value} pages`;
-        card.appendChild(cardData);
+            cardData.textContent = `${value} pages`;
+            card.appendChild(cardData);
         } else {
             let cardData = document.createElement('div');
             cardData.textContent = `${value}`;
@@ -97,11 +97,11 @@ function displayBook(myLibrary) {
     })
     let toggleStatus = document.createElement('button');
     toggleStatus.classList.add('read-toggle');
+    setToggleText(book.read, toggleStatus);
     toggleStatus.addEventListener('click', function(e) {
         book.updateReadStatus();
         setToggleText(book.read, toggleStatus)
     })
-    setToggleText(book.read, toggleStatus);
     card.appendChild(toggleStatus);
     createRemoveBtn(index, card);
     cardContainer.appendChild(card);
@@ -110,7 +110,14 @@ function displayBook(myLibrary) {
 
 
 function setToggleText(boolean, toggleStatus) {
-    boolean === true ? toggleStatus.textContent = "Read" : toggleStatus.textContent = "Not read yet"
+    if (boolean === true) {
+        toggleStatus.textContent = "Read";
+        toggleStatus.classList.add('read')
+    } else {
+        toggleStatus.textContent = "Not read yet"
+        toggleStatus.classList.remove('read');
+    }
+    // boolean === true ? toggleStatus.textContent = "Read" : toggleStatus.textContent = "Not read yet"
 }
 
 
