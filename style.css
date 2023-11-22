@@ -194,6 +194,10 @@ input[type="checkbox"] {
     margin-left: 10px;
 }
 
+button:hover {
+    filter: contrast(150%);
+}
+
 .form-add > button {
     width: 100%;
     font-size: 1.2rem;
@@ -277,12 +281,15 @@ button {
     gap: 20px;
     color: var(--champagne-pink-light);
     background: linear-gradient(to bottom right,var(--wisteria-dark), var(--lilac-dark));
+    box-shadow: 8px 8px 4px var(--wisteria-dark);
+    /* offset-x | offset-y | blur-radius | spread-radius | color */
     position: relative;
     /* To make the book cards solid */
 }
 
 .card > div:nth-child(1) {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
+    font-weight: 600;
     text-align: center;
 }
 
@@ -290,10 +297,19 @@ button {
 .read-toggle {
     width: 80%;
     background: linear-gradient(var(--wisteria), var(--french-gray), var(--wisteria));
+    filter: brightness(1);
     color: var(--wisteria-dark);
     font-weight: 700;
     padding: 7px 30px;
+    cursor: pointer;
 }
+
+.remove-btn:hover,
+.read-toggle:hover,
+.read-toggle.read:hover {
+    filter: contrast(130%);
+}
+
 
 .read-toggle {
     background: linear-gradient(var(--medium-red), var(--pale-red), var(--medium-red));
