@@ -243,9 +243,9 @@ button {
 .card-container {
     grid-column: 2 / 3;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-template-rows: repeat(2, 250px);
-    grid-auto-rows: 250px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-rows: repeat(2, 300px);
+    grid-auto-rows: 300px;
     gap: 50px 20px;
     padding: 50px 0px;
     justify-items: center;
@@ -264,8 +264,8 @@ button {
     justify-content: center;
     font-size: 1.2rem;
     padding: 20px;
-    height: 250px;
-    width: 300px;
+    height: 300px;
+    width: 280px;
     gap: 20px;
     color: var(--champagne-pink-light);
     background: linear-gradient(to bottom right,var(--wisteria-dark), var(--lilac-dark));
