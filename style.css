@@ -68,6 +68,14 @@ table {
 --wisteria-dark: hsla(275, 33%, 45%, 1);
 --lilac-dark: hsla(279, 26%, 60%, 1);
 --champagne-pink-light: hsla(14, 45%, 95%, 1);
+
+/* Button colors*/
+
+--pale-green: #c2fbd7;
+--medium-green: #87cca0;
+--pale-red: #fbc2c2;
+--medium-red: #cc8787;
+
 }
 
 * {
@@ -285,6 +293,14 @@ button {
     color: var(--wisteria-dark);
     font-weight: 700;
     padding: 7px 30px;
+}
+
+.read-toggle {
+    background: linear-gradient(var(--medium-red), var(--pale-red), var(--medium-red));
+}
+
+.read-toggle.read {
+    background: linear-gradient(var(--medium-green), var(--pale-green), var(--medium-green));
 }
 
 .main::before {
