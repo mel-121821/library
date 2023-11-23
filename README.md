@@ -140,3 +140,6 @@ https://stackoverflow.com/questions/11374059/make-an-html-svg-object-also-a-clic
 
 Pointer-events:
 https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events
+
+Auto-fill vs. auto-fit:
+https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/
