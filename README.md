@@ -129,3 +129,14 @@ https://stackoverflow.com/questions/115548/why-is-isnannull-false-in-js
 
 Using Ternary Operators:
 https://www.freecodecamp.org/news/the-ternary-operator-in-javascript/
+
+CSS Filter:
+https://stackoverflow.com/questions/17481660/darken-background-image-on-hover
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/filter
+
+Make an SVG into a clickable link:
+https://stackoverflow.com/questions/11374059/make-an-html-svg-object-also-a-clickable-link
+
+Pointer-events:
+https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events
