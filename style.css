@@ -268,10 +268,13 @@ button {
     /* To make the book cards solid */
 }
 
+.card > div {
+    text-align: center;
+}
+
 .card > div:nth-child(1) {
     font-size: 1.5rem;
     font-weight: 600;
-    text-align: center;
 }
 
 .remove-btn,
