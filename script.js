@@ -67,13 +67,13 @@ form.addEventListener('submit', function(e) {
 })
 
 
+
+//_____Add and Display Functions____________
+
 function addBookToLibrary(title, author, pages, read) {
     myLibrary.push(new Book(title, author, pages, read)); 
 }
 
-
-
-//_____Add and Display Functions____________
 
 function displayBook(myLibrary) {
     myLibrary.forEach((book, index, array) => {
@@ -114,10 +114,9 @@ function setToggleText(boolean, toggleStatus) {
         toggleStatus.textContent = "Read";
         toggleStatus.classList.add('read')
     } else {
-        toggleStatus.textContent = "Not read yet"
+        toggleStatus.textContent = "Not read"
         toggleStatus.classList.remove('read');
     }
-    // boolean === true ? toggleStatus.textContent = "Read" : toggleStatus.textContent = "Not read yet"
 }
 
 
