@@ -1,4 +1,17 @@
+// New Branch, class version
+// pseudocode:
 
+// objective: change the constructor functionality to class
+// current constructor when called with "new" will create an object with 4 values: title, author, pages, read status
+// we want to keep this funcitonality with the class, it should create a new book object with those 4 values
+// in the class, have the constructor take in the 4 values and assign them to the new object
+// no need to create subclasses here as all objects created on this page (Books) will have the same functionality
+
+// note class methods are not enumerable - could cause some issues with existing code
+
+// in original code, a function is placed on the prototype of the Book constructor to change book status so that it is accessible to all instances
+// methods created on the class are on the prototype and therefore available to all instances (review static vs reg method here)
+// Static methods belong to the class and not the instance - return values will not be unique to different instances, but will be unique to the class that made them (static methods should not be used here for updateReadStatus because the each instance needs its own unique value)
 
 //_____My Library Array__________
 
@@ -30,21 +43,35 @@ const submitBook = document.querySelector('.form-add > button')
 
 //_____Object Constructor_____________
 
-function Book(title, author, pages, read) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.read = Boolean(read);
+// function Book(title, author, pages, read) {
+//     this.title = title
+//     this.author = author
+//     this.pages = pages
+//     this.read = Boolean(read);
+// }
+
+//_____________Object Constructor Class__________
+
+class Book {
+constructor(title, author, pages, read) {
+this.title = title;
+this.author = author;
+this.pages = pages;
+this.read = Boolean(read);
 }
+updateReadStatus() {    
+    this.read === true ? this.read = false : this.read = true;
+    return this.read; 
+}};
 
 
 
 //_____Set Prototype___________________
 
-Book.prototype.updateReadStatus = function() {
-    this.read === true ? this.read = false : this.read = true;
-    return this.read;
-}
+// Book.prototype.updateReadStatus = function() {
+//     this.read === true ? this.read = false : this.read = true;
+//     return this.read;
+// }
 
 
 
