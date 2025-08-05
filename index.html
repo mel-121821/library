@@ -10,20 +10,23 @@
 <body>
     <dialog class="form-popup">
         <!-- <button class="close">X</button> -->
-        <form action="" method="post">
+        <form action="" method="post" novalidate>
             <legend>Add a new book</legend>
             <div class="user-inputs">
                 <div class="book-title">
                     <label for="title">Book Title:</label>
                     <input type="text" id="title"  name="title" required/>
+                    <span class="error" aria-live="polite"></span>
                 </div>
                 <div class="book-author">
                     <label for="author">Author:</label>
-                    <input type="text" id="author"  name="author">
+                    <input type="text" id="author"  name="author" required>
+                    <span class="error" aria-live="polite"></span>
                 </div>
                 <div class="pages">
                     <label for="pages">Number of Pages:</label>
-                    <input type="tel" id="pages"  name="pages">
+                    <input type="tel" id="pages"  name="pages" required>
+                    <span class="error" aria-live="polite"></span>
                 </div>
                 <div class="read-status">
                     <label for="read">Have you read it?</label>
