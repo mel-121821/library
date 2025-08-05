@@ -29,6 +29,15 @@ function addBookToLibrary() {
 NOTE: You’re not required to add any type of storage right now. You will have the option to come back to this project later on in the course.
 
 
+________________Revisit 1: Class_______________
+
+[x] Go back to your Library project and refactor it to use class instead of plain constructors. Don’t forget to use the git branch workflow you learned in Revisiting Rock Paper Scissors to work on a new feature. You should get used to working like this!
+
+
+________________Revisit 2: Form Validation_______________
+
+[] Go back to your Library project and add validation to that form! Don’t let your users submit without filling in all the fields! Don’t forget to use the git branch workflow you learned in Revisiting Rock Paper Scissors from Foundations to work on a new feature.
+
 
 ________________Media_______________
 
