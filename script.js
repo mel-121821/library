@@ -9,7 +9,7 @@
 
 // in original code, a function is placed on the prototype of the Book constructor to change book status so that it is accessible to all instances
 // methods created on the class are on the prototype and therefore available to all instances (review static vs reg method here)
-// Static methods belong to the class and not the instance - return values will not be unique to different instances, but will be unique to the class that made them (static methods should not be used here for updateReadStatus because the each instance needs its own unique value)
+// Static methods belong to the class and not the instance - return values will not be unique to different instances, but will be unique to the class that made them (static methods should not be used here for updateReadStatus because each instance needs its own unique value)
 
 //_____My Library Array__________
 
@@ -31,24 +31,11 @@ const authorInput = document.querySelector('#author');
 const pagesInput = document.querySelector('#pages');
 const readInput = document.querySelector('#read');
 
-const container = document.querySelector('.container');
-
 const cardContainer = document.querySelector('.card-container')
-
-const submitBook = document.querySelector('.form-add > button')
 
 
 
 //_____Object Constructor_____________
-
-// function Book(title, author, pages, read) {
-//     this.title = title
-//     this.author = author
-//     this.pages = pages
-//     this.read = Boolean(read);
-// }
-
-//_____________Object Constructor Class__________
 
 class Book {
 constructor(title, author, pages, read) {
@@ -64,15 +51,6 @@ updateReadStatus() {
 
 
 
-//_____Set Prototype___________________
-
-// Book.prototype.updateReadStatus = function() {
-//     this.read === true ? this.read = false : this.read = true;
-//     return this.read;
-// }
-
-
-
 //_____Event Listeners__________________
 
 addButton.addEventListener('click', function() {
@@ -82,7 +60,7 @@ addButton.addEventListener('click', function() {
 
 form.addEventListener('submit', function(e) {
     e.preventDefault();
-    addBookToLibrary(title.value, author.value, pages.value, read.checked);
+    addBookToLibrary(titleInput.value, authorInput.value, pagesInput.value, readInput.checked);
     refreshCardData();
     displayBook(myLibrary);
     form.reset();
@@ -96,12 +74,12 @@ form.addEventListener('submit', function(e) {
 //_____Add and Display Functions____________
 
 function addBookToLibrary(title, author, pages, read) {
-    myLibrary.push(new Book(title, author, pages, read)); 
+    myLibrary.push(new Book(title, author, pages, read));
 }
 
 
 function displayBook(myLibrary) {
-    myLibrary.forEach((book, index, array) => {
+    myLibrary.forEach((book, index) => {
     let card = document.createElement('div');
     card.classList.add('card');
     card.dataset.index = index;
@@ -120,13 +98,15 @@ function displayBook(myLibrary) {
             card.appendChild(cardData);
         }
     })
+
     let toggleStatus = document.createElement('button');
     toggleStatus.classList.add('read-toggle');
     setToggleText(book.read, toggleStatus);
-    toggleStatus.addEventListener('click', function(e) {
+    toggleStatus.addEventListener('click', function() {
         book.updateReadStatus();
         setToggleText(book.read, toggleStatus)
     })
+
     card.appendChild(toggleStatus);
     createRemoveBtn(index, card);
     cardContainer.appendChild(card);
@@ -152,7 +132,7 @@ function createRemoveBtn(index, card) {
     const removeBtn = document.createElement('button');
     removeBtn.textContent = "Remove";
     removeBtn.classList.add('remove-btn')
-    removeBtn.addEventListener('click', function(e) {
+    removeBtn.addEventListener('click', function() {
         removeBookFromLibrary(myLibrary, index);
         refreshCardData();
         displayBook(myLibrary);
