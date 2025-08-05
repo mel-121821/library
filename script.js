@@ -1,15 +1,14 @@
-// New Branch, class version
-// pseudocode:
+// New Branch, form validation
 
-// objective: change the constructor functionality to class
-// current constructor when called with "new" will create an object with 4 values: title, author, pages, read status
-// we want to keep this funcitonality with the class, it should create a new book object with those 4 values
-// in the class, have the constructor take in the 4 values and assign them to the new object
-// no need to create subclasses here as all objects created on this page (Books) will have the same functionality
+// Plan:
+// Validate 3 fields: title, author and pages
+// For title, user must input a value, but no other restrictions are needed (Title can include numbers, symbols etc.). 
+// For author, user must input a value, and it must be text only - no numbers or symbols, but spaces are allowed
+// For pages, user must input a value, and only numbers are allowed
+// can use valueMissing and pattern mismatch for validation
+// use regex patterns to test inputs against
 
-// in original code, a function is placed on the prototype of the Book constructor to change book status so that it is accessible to all instances
-// methods created on the class are on the prototype and therefore available to all instances (review static vs reg method here)
-// Static methods belong to the class and not the instance - return values will not be unique to different instances, but will be unique to the class that made them (static methods should not be used here for updateReadStatus because each instance needs its own unique value)
+
 
 //_____My Library Array__________
 
@@ -32,6 +31,7 @@ const pagesInput = document.querySelector('#pages');
 const readInput = document.querySelector('#read');
 
 const cardContainer = document.querySelector('.card-container')
+
 
 
 
@@ -68,6 +68,43 @@ form.addEventListener('submit', function(e) {
     // used form instead of submitButton because "submit" will only work if used on a form tag 
     // also used "submit" instead of "click", otherwise the HTML required tag would not work
 })
+
+titleInput.addEventListener('input', (e) => {
+    checkValueExists(e)
+})
+
+
+
+// functions - 1 each to:
+// check that input exists
+// show error msg for valueMissing
+// check for title pattern & show error msg
+// check for author pattern & show error msg
+// check for pages pattern & show error msg
+
+// event listeners:
+// for each (3): on input, check value exists, setCustom error msg
+// on submit: check validity, if invalid, prevent default, display error message
+
+function checkValueExists(e) {
+    if (!e.target.validity.valueMissing) {
+        e.target.nextElementSibling.textContent = "";
+        console.log("input is valid")
+    } else {
+        showError_ValueMissing(e)
+        console.log("input is NOT valid")
+    }
+}
+
+function showError_ValueMissing(e) {
+    e.target.nextElementSibling.textContent = "Please fill out this field"
+}
+
+function showError_invalidAuthorName(e) {
+
+}
+
+
 
 
 
