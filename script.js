@@ -111,7 +111,7 @@ function validateTitle(input) {
 }
 
 function updateErrorMsg_Title(input, isValue) {
-    const spanMsg = input.nextElementSibling;
+    const spanMsg = input.previousElementSibling;
     if (!isValue) {
         spanMsg.textContent = "Please fill out this field";
     } else {
@@ -128,7 +128,7 @@ function validateAuthor(input) {
 }
 
 function updateErrorMsg_Author(input, isValue, isMatch) {
-    const spanMsg = input.nextElementSibling;
+    const spanMsg = input.previousElementSibling;
     if (!isValue) {
         spanMsg.textContent = "Please fill out this field";
     } else if (isValue && !isMatch) {
@@ -147,7 +147,7 @@ function validatePages(input) {
 }
 
 function updateErrorMsg_Pages(input, isValue, isMatch) {
-    const spanMsg = input.nextElementSibling;
+    const spanMsg = input.previousElementSibling;
     if (!isValue) {
         spanMsg.textContent = "Please fill out this field";
     } else if (isValue && !isMatch) {
