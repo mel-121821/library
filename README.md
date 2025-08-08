@@ -155,3 +155,6 @@ https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/
 
 RegEx Pattern tip - see comment from requinix regarding anchors:
 https://forums.phpfreaks.com/topic/284903-allow-only-letters-numbers-dash-underscore-or-space/
+
+Selecting previous element in CSS with :has():
+https://stackoverflow.com/questions/1817792/is-there-a-previous-sibling-selector
