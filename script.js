@@ -70,9 +70,17 @@ form.addEventListener('submit', function(e) {
 })
 
 titleInput.addEventListener('input', (e) => {
-    checkValueExists(e)
+    // setValidClass(e, checkValueExists(e))
+    updateError_TitleField(e)
 })
 
+authorInput.addEventListener('input', (e) => {
+    updateError_AuthorField(e);
+})
+
+pagesInput.addEventListener('input', (e) => {
+    updateError_PagesField(e)
+})
 
 
 // functions - 1 each to:
@@ -86,24 +94,80 @@ titleInput.addEventListener('input', (e) => {
 // for each (3): on input, check value exists, setCustom error msg
 // on submit: check validity, if invalid, prevent default, display error message
 
+// TODO: need to add a class to signal validity as the regular validity.value does not match against the regEx patterns
+
 function checkValueExists(e) {
-    if (!e.target.validity.valueMissing) {
-        e.target.nextElementSibling.textContent = "";
-        console.log("input is valid")
+    const valueValid = !e.target.validity.valueMissing
+    console.log(valueValid);
+    return valueValid;
+}
+
+function checkValidMatch(e, regex) {
+    const matchTrue = regex.test(e.target.value)
+    console.log(matchTrue)
+    return matchTrue
+
+}
+
+function setValidClass(e, isValid) {
+    console.log(isValid)
+    e.target.className = isValid ? "valid" : "invalid"
+}
+
+function updateError_TitleField(e) {
+    const isValue = checkValueExists(e);
+    if (isValue) {
+        setValidClass(e, isValue)
+        console.log(e.target.className)
+        e.target.nextElementSibling.textContent = "Please fill out this field"
     } else {
-        showError_ValueMissing(e)
-        console.log("input is NOT valid")
+        setValidClass(e, isValue)
+        console.log(e.target.className)
+        e.target.nextElementSibling.textContent = "";   
     }
 }
 
-function showError_ValueMissing(e) {
-    e.target.nextElementSibling.textContent = "Please fill out this field"
+function updateError_AuthorField(e) {
+    const regEx_Author = /^[a-zA-Z\s.-]+$/gm
+    const isValue = checkValueExists(e)
+    const isMatch = checkValidMatch(e, regEx_Author)
+    if (isValue && isMatch) {
+        setValidClass(e, isMatch)
+        e.target.nextElementSibling.textContent = "";
+        console.log("author name is a match")
+        console.log(e.target.className)
+    } else if (isValue && !isMatch){
+        setValidClass(e, isMatch)
+        e.target.nextElementSibling.textContent = "Please enter a valid name (can include letters, '.' or '-')"
+        console.log("author name is INVALID")
+        console.log(e.target.className)
+    } else {
+        setValidClass(e, isValue)
+        e.target.nextElementSibling.textContent = "Please fill out this field"
+        console.log(e.target.className)
+    }
 }
 
-function showError_invalidAuthorName(e) {
-
+function updateError_PagesField(e) {
+    const regEx_Pages = /^[0-9]*$/gm
+    const isValue = checkValueExists(e)
+    const isMatch = checkValidMatch(e, regEx_Pages)
+    if (isValue && isMatch) {
+        setValidClass(e, isMatch)
+        e.target.nextElementSibling.textContent = "";
+        console.log("page num is valid")
+        console.log(e.target.className)
+    } else if (isValue && !isMatch) {
+        setValidClass(e, isMatch)
+        e.target.nextElementSibling.textContent = "Please enter a valid number"
+        console.log("page num is INVALID")
+        console.log(e.target.className)
+    } else {
+        setValidClass(e, isValue);
+        e.target.nextElementSibling.textContent = "Please fill out this field"
+        console.log(e.target.className)
+    }
 }
-
 
 
 
