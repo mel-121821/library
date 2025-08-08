@@ -152,3 +152,6 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events
 
 Auto-fill vs. auto-fit:
 https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/
+
+RegEx Pattern tip - see comment from requinix regarding anchors:
+https://forums.phpfreaks.com/topic/284903-allow-only-letters-numbers-dash-underscore-or-space/
