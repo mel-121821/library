@@ -61,12 +61,11 @@ addButton.addEventListener('click', function() {
 form.addEventListener('submit', function(e) {
     e.preventDefault();
     const formValid = validateForm()
-    console.log(formValid)
     if (formValid) {
         addBookToLibrary(titleInput.value, authorInput.value, pagesInput.value, readInput.checked);
         refreshCardData();
         displayBook(myLibrary);
-        closeForm()
+        closeForm();
         // used form instead of submitButton because "submit" will only work if used on a form tag 
         // also used "submit" instead of "click", otherwise the HTML required tag would not work
     } else {
@@ -74,127 +73,108 @@ form.addEventListener('submit', function(e) {
         validateAuthor(authorInput);
         validatePages(pagesInput);
     }
-  
 })
 
 titleInput.addEventListener('input', (e) => {
-    const input = e.target
-    validateTitle(input)
+    const input = e.target;
+    validateTitle(input);
 })
 
 authorInput.addEventListener('input', (e) => {
-    const input = e.target
+    const input = e.target;
     validateAuthor(input);
 })
 
 pagesInput.addEventListener('input', (e) => {
-    const input = e.target
-    validatePages(input)
+    const input = e.target;
+    validatePages(input);
 })
 
-
-// functions - 1 each to:
-// check that input exists
-// show error msg for valueMissing
-// check for title pattern & show error msg
-// check for author pattern & show error msg
-// check for pages pattern & show error msg
-
-// event listeners:
-// for each (3): on input, check value exists, setCustom error msg
-// on submit: check validity, if invalid, prevent default, display error message
-
-// TODO: need to add a class to signal validity as the regular validity.value does not match against the regEx patterns
-
 function checkValueExists(input) {
-    const valueValid = !input.validity.valueMissing
+    const valueValid = !input.validity.valueMissing;
     return valueValid;
 }
 
 function checkValidMatch(input, regex) {
-    const matchTrue = regex.test(input.value)
-    return matchTrue
-
+    const matchTrue = regex.test(input.value);
+    return matchTrue;
 }
 
 function setValidClass(input, isValid, isMatch=true) {
-    input.className = (isValid && isMatch) ? "valid" : "invalid"
+    input.className = (isValid && isMatch) ? "valid" : "invalid";
 }
 
 function validateTitle(input) {
     const isValue = checkValueExists(input);
-    updateErrorMsg_Title(input, isValue)
-    setValidClass(input, isValue)
+    updateErrorMsg_Title(input, isValue);
+    setValidClass(input, isValue);
 }
 
 function updateErrorMsg_Title(input, isValue) {
     const spanMsg = input.nextElementSibling;
     if (!isValue) {
-        spanMsg.textContent = "Please fill out this field"
+        spanMsg.textContent = "Please fill out this field";
     } else {
         spanMsg.textContent = "";  
     }
 }
 
 function validateAuthor(input) {
-    const regEx_Author = /^[a-zA-Z\s.-]+$/gm
-    const isValue = checkValueExists(input)
-    const isMatch = checkValidMatch(input, regEx_Author)
-    setValidClass(input, isValue, isMatch)
-    updateErrorMsg_Author(input, isValue, isMatch)
+    const regEx_Author = /^[a-zA-Z\s.-]+$/gm;
+    const isValue = checkValueExists(input);
+    const isMatch = checkValidMatch(input, regEx_Author);
+    setValidClass(input, isValue, isMatch);
+    updateErrorMsg_Author(input, isValue, isMatch);
 }
 
 function updateErrorMsg_Author(input, isValue, isMatch) {
-    const spanMsg = input.nextElementSibling
+    const spanMsg = input.nextElementSibling;
     if (!isValue) {
-        spanMsg.textContent = "Please fill out this field"
+        spanMsg.textContent = "Please fill out this field";
     } else if (isValue && !isMatch) {
-        spanMsg.textContent = "Please enter a valid name (can include letters, '.' or '-')"
+        spanMsg.textContent = "Please enter a valid name (can include letters, '.' or '-')";
     } else {
         spanMsg.textContent = "";
     }
 }
 
 function validatePages(input) {
-    const regEx_Pages = /^[0-9]*$/gm
-    const isValue = checkValueExists(input)
-    const isMatch = checkValidMatch(input, regEx_Pages)
-    setValidClass(input, isValue, isMatch)
-    updateErrorMsg_Pages(input, isValue, isMatch)
+    const regEx_Pages = /^[0-9]*$/gm;
+    const isValue = checkValueExists(input);
+    const isMatch = checkValidMatch(input, regEx_Pages);
+    setValidClass(input, isValue, isMatch);
+    updateErrorMsg_Pages(input, isValue, isMatch);
 }
 
-
 function updateErrorMsg_Pages(input, isValue, isMatch) {
-    const spanMsg = input.nextElementSibling
+    const spanMsg = input.nextElementSibling;
     if (!isValue) {
-        spanMsg.textContent = "Please fill out this field"
+        spanMsg.textContent = "Please fill out this field";
     } else if (isValue && !isMatch) {
-        spanMsg.textContent = "Please enter a valid number"
+        spanMsg.textContent = "Please enter a valid number";
     } else {
         spanMsg.textContent = "";
     }
 }
 
 function validateForm() {
-    const titleValid = titleInput.className === "valid"
-    const authorValid = authorInput.className === "valid"
-    const pagesValid = pagesInput.className === "valid"
-    const allValid = (titleValid && authorValid && pagesValid)
-    console.log(`Title valid? ${titleValid} - author valid? ${authorValid} - pages valid? ${pagesValid}`)
-    console.log(`all fields valid? ${allValid}`)
+    const titleValid = titleInput.className === "valid";
+    const authorValid = authorInput.className === "valid";
+    const pagesValid = pagesInput.className === "valid";
+    const allValid = (titleValid && authorValid && pagesValid);
     return allValid;
 }
 
 function closeForm() {
     form.reset();
-    clearValidity()
+    clearValidity();
     formPopup.close();
 }
 
 function clearValidity(){
-    titleInput.className = ""
-    authorInput.className = ""
-    pagesInput.className = ""
+    titleInput.className = "";
+    authorInput.className = "";
+    pagesInput.className = "";
 }
 
 
